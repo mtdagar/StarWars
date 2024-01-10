@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
     //hilt
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
@@ -36,6 +37,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -58,7 +62,7 @@ dependencies {
 
     //retrofit + moshi
     implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
-    implementation("com.squareup.retrofit2:converter-moshi:$retrofit_version")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
 }
 
 // Allow references to generated code
