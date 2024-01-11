@@ -1,4 +1,4 @@
-package com.mtdagar.starwars
+package com.mtdagar.starwars.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import com.mtdagar.starwars.R
 import com.mtdagar.starwars.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

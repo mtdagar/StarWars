@@ -22,7 +22,7 @@ class SplashFragment : Fragment() {
         //todo add proper data loading
         Handler().postDelayed(Runnable {
             findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
-        }, 3000)
+        }, 1000)
 
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
