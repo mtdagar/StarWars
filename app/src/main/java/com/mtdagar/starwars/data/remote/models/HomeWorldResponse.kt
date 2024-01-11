@@ -1,4 +1,4 @@
-package com.mtdagar.starwars.data.models
+package com.mtdagar.starwars.data.remote.models
 
 
 import com.google.gson.annotations.SerializedName

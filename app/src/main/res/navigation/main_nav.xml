@@ -32,6 +32,6 @@
         tools:layout="@layout/fragment_character_detail" >
         <argument
             android:name="characterDetails"
-            app:argType="com.mtdagar.starwars.data.models.Character" />
+            app:argType="com.mtdagar.starwars.data.local.models.CharacterEntity" />
     </fragment>
 </navigation>

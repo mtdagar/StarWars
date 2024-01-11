@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.mtdagar.starwars.data.models.Character
+import com.mtdagar.starwars.data.local.models.CharacterEntity
 import com.mtdagar.starwars.databinding.CharactersRowBinding
 
 class CharactersAdapter(private val onClickListener: OnClickListener) :
-    PagingDataAdapter<Character, CharactersAdapter.MyViewHolder>(CHARACTER_COMPARATOR) {
+    PagingDataAdapter<CharacterEntity, CharactersAdapter.MyViewHolder>(CHARACTER_COMPARATOR) {
 
     inner class MyViewHolder(private val binding: CharactersRowBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(character: Character?) {
+        fun bind(character: CharacterEntity?) {
             binding.nameTextView.text = character?.name
             binding.dobTextView.text = character?.birthYear
         }
@@ -39,18 +39,18 @@ class CharactersAdapter(private val onClickListener: OnClickListener) :
     }
 
     companion object {
-        private val CHARACTER_COMPARATOR = object : DiffUtil.ItemCallback<Character>() {
-            override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
+        private val CHARACTER_COMPARATOR = object : DiffUtil.ItemCallback<CharacterEntity>() {
+            override fun areItemsTheSame(oldItem: CharacterEntity, newItem: CharacterEntity): Boolean {
                 return oldItem.name == newItem.name
             }
 
-            override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean {
+            override fun areContentsTheSame(oldItem: CharacterEntity, newItem: CharacterEntity): Boolean {
                 return oldItem == newItem
             }
         }
     }
 
-    class OnClickListener(val clickListener: (character: Character) -> Unit) {
-        fun onClick(character: Character) = clickListener(character)
+    class OnClickListener(val clickListener: (character: CharacterEntity) -> Unit) {
+        fun onClick(character: CharacterEntity) = clickListener(character)
     }
 }

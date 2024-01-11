@@ -6,6 +6,7 @@ plugins {
     //hilt
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -64,7 +65,7 @@ dependencies {
 
     //hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+    ksp("com.google.dagger:hilt-android-compiler:$hilt_version")
 
     //retrofit + moshi
     implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
@@ -86,14 +87,15 @@ dependencies {
     //Paging
     implementation("androidx.paging:paging-runtime-ktx:$paging_version")
 
+
     //Room
-
-
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-paging:$roomVersion")
 
     // Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$roomVersion")
+    ksp("androidx.room:room-compiler:2.5.0")
 }
 
 // Allow references to generated code

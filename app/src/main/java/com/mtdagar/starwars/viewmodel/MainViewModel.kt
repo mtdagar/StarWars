@@ -4,17 +4,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.mtdagar.starwars.repository.CharactersRepository
+import com.mtdagar.starwars.data.local.models.CharacterEntity
+import com.mtdagar.starwars.repository.CharacterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
-import com.mtdagar.starwars.data.models.Character
+import com.mtdagar.starwars.data.remote.models.CharacterResponse
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val charactersRepository: CharactersRepository) :
+class MainViewModel @Inject constructor(private val charactersRepository: CharacterRepository) :
     ViewModel() {
 
-    fun getCharacters(searchString: String): Flow<PagingData<Character>> {
+    fun getCharacters(searchString: String): Flow<PagingData<CharacterEntity>> {
         return charactersRepository.getCharacters(searchString).cachedIn(viewModelScope)
     }
 }

@@ -1,4 +1,4 @@
-package com.mtdagar.starwars.data.models
+package com.mtdagar.starwars.data.remote.models
 
 
 import com.google.gson.annotations.SerializedName
@@ -11,5 +11,5 @@ data class PeopleResponse(
     @SerializedName("previous")
     val previous: Any,
     @SerializedName("results")
-    val results: List<Character>
+    val results: List<CharacterResponse>
 )
