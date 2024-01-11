@@ -1,4 +1,4 @@
-package com.kanyideveloper.starwars.models
+package com.mtdagar.starwars.data.models
 
 
 import com.google.gson.annotations.SerializedName

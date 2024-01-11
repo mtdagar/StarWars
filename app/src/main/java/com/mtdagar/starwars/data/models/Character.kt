@@ -1,10 +1,12 @@
-package com.kanyideveloper.starwars.models
+package com.mtdagar.starwars.data.models
 
 
 import android.os.Parcelable
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
+@Entity(tableName = "characters")
 @Parcelize
 data class Character(
     @SerializedName("birth_year")

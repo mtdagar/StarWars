@@ -1,8 +1,8 @@
 package com.mtdagar.starwars.network
 
-import com.kanyideveloper.starwars.models.FilmResponse
-import com.kanyideveloper.starwars.models.HomeWorldResponse
-import com.kanyideveloper.starwars.models.PeopleResponse
+import com.mtdagar.starwars.data.models.FilmResponse
+import com.mtdagar.starwars.data.models.HomeWorldResponse
+import com.mtdagar.starwars.data.models.PeopleResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.Url

@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.StarWars" parent="Base.Theme.StarWars" />
+
+    <style name="Custom_Toolbar_Theme" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
 </resources>
