@@ -71,10 +71,8 @@ class CharacterRemoteMediator(
                 starWarsDatabase.characterDao().insertAll(characters)
             }
             return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
-        } catch (exception: IOException) {
-            return MediatorResult.Error(exception)
-        } catch (exception: HttpException) {
-            return MediatorResult.Error(exception)
+        } catch (e: Exception) {
+            return MediatorResult.Error(e)
         }
     }
 

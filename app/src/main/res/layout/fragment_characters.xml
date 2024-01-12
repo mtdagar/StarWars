@@ -32,6 +32,18 @@
         app:layout_constraintStart_toStartOf="@+id/charactersRecyclerview"
         app:layout_constraintTop_toTopOf="@+id/charactersRecyclerview" />
 
+    <ProgressBar
+        android:id="@+id/appendProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/yellow"
+        android:layout_marginStart="100dp"
+        android:indeterminateTintMode="src_in"
+        app:layout_constraintBottom_toBottomOf="@+id/charactersRecyclerview"
+        app:layout_constraintStart_toEndOf="@+id/progressBarStyle"
+        app:layout_constraintTop_toTopOf="@+id/charactersRecyclerview" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textViewError"
         android:layout_width="wrap_content"

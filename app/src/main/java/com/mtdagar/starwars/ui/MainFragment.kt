@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import androidx.paging.PagingData
+import androidx.recyclerview.widget.GridLayoutManager
 import com.mtdagar.starwars.R
 import com.mtdagar.starwars.adapter.CharactersAdapter
 import com.mtdagar.starwars.databinding.FragmentCharactersBinding
@@ -72,6 +75,12 @@ class MainFragment : Fragment() {
         }
 
         charactersAdapter.addLoadStateListener { loadState ->
+            if (loadState.append is LoadState.Loading) {
+                binding.appendProgressBar.isVisible = true
+            } else {
+                binding.appendProgressBar.isVisible = false
+            }
+
             if (loadState.refresh is LoadState.Loading) {
                 if (charactersAdapter.snapshot().isEmpty()) {
                     binding.charactersProgressBar.isVisible = true
