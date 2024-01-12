@@ -20,7 +20,7 @@
         android:id="@+id/mainFragment"
         android:name="com.mtdagar.starwars.ui.MainFragment"
         android:label="fragment_characters"
-        tools:layout="@layout/fragment_characters" >
+        tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_characterDetailFragment"
             app:destination="@id/characterDetailFragment" />

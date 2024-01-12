@@ -15,14 +15,14 @@ import androidx.paging.PagingData
 import androidx.recyclerview.widget.GridLayoutManager
 import com.mtdagar.starwars.R
 import com.mtdagar.starwars.adapter.CharactersAdapter
-import com.mtdagar.starwars.databinding.FragmentCharactersBinding
+import com.mtdagar.starwars.databinding.FragmentMainBinding
 import com.mtdagar.starwars.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
-    private lateinit var binding: FragmentCharactersBinding
+    private lateinit var binding: FragmentMainBinding
     private lateinit var viewModel: MainViewModel
 
     private val charactersAdapter: CharactersAdapter by lazy {
@@ -48,7 +48,7 @@ class MainFragment : Fragment() {
     ): View {
 
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        binding = FragmentCharactersBinding.inflate(inflater, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -72,6 +72,7 @@ class MainFragment : Fragment() {
 
         binding.charactersRecyclerview.apply {
             adapter = charactersAdapter
+            layoutManager = GridLayoutManager(context, 2)
         }
 
         charactersAdapter.addLoadStateListener { loadState ->
