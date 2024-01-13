@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="filter"
+        android:textColor="@color/white"
         android:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="@id/iv_banner"
         app:layout_constraintEnd_toEndOf="@id/iv_banner"

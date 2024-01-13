@@ -66,6 +66,12 @@ class MainFragment : Fragment() {
                 charactersAdapter.submitData(lifecycle, it)
             }
         }
+
+        binding.btnFilter.setOnClickListener {
+            val modal = BottomSheetDialog()
+            parentFragmentManager.let { modal.show(it, BottomSheetDialog.TAG) }
+
+        }
     }
 
     private fun setUpAdapter() {
