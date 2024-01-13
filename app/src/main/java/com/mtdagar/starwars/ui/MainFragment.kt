@@ -26,14 +26,14 @@ class MainFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
 
     private val charactersAdapter: CharactersAdapter by lazy {
-        CharactersAdapter(CharactersAdapter.OnClickListener { character ->
+        CharactersAdapter { character ->
             val action =
                 MainFragmentDirections.actionMainFragmentToCharacterDetailFragment(
                     character
                 )
             findNavController().navigate(action)
             //binding.searchView.editText!!.setText("")
-        })
+        }
     }
 
 

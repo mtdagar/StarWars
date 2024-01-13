@@ -15,12 +15,15 @@ data class CharacterEntity (
     val birthYear: String?,
     @SerializedName("eye_color")
     val eyeColor: String?,
+    val films: List<String>,
     @SerializedName("gender")
     val gender: String?,
     @SerializedName("hair_color")
     val hairColor: String?,
     @SerializedName("height")
     val height: String?,
+    val homeworld: String,
+    val mass: String,
     @SerializedName("name")
     val name: String?,
     @SerializedName("skin_color")

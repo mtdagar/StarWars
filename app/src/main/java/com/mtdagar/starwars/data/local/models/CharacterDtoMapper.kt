@@ -11,7 +11,10 @@ fun CharacterResponse.mapFromEntity() = CharacterEntity(
     hairColor = this.hairColor,
     height = this.height,
     name = this.name,
-    skinColor = this.skinColor
+    skinColor = this.skinColor,
+    films = this.films,
+    homeworld = this.homeworld,
+    mass = this.mass
 )
 
 fun List<CharacterResponse>.mapFromListModel(): List<CharacterEntity>{

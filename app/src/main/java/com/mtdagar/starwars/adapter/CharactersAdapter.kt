@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtdagar.starwars.data.local.models.CharacterEntity
 import com.mtdagar.starwars.databinding.CharactersRowBinding
 
-class CharactersAdapter(private val onClickListener: OnClickListener) :
+class CharactersAdapter(private val onClick : (character: CharacterEntity) -> Unit) :
     PagingDataAdapter<CharacterEntity, CharactersAdapter.MyViewHolder>(CHARACTER_COMPARATOR) {
 
     inner class MyViewHolder(private val binding: CharactersRowBinding) :
@@ -34,7 +34,8 @@ class CharactersAdapter(private val onClickListener: OnClickListener) :
         holder.bind(character)
 
         holder.itemView.setOnClickListener {
-            onClickListener.onClick(character!!)
+            //onClickListener.onClick(character!!)
+            character?.run(onClick)
         }
     }
 
@@ -48,9 +49,5 @@ class CharactersAdapter(private val onClickListener: OnClickListener) :
                 return oldItem == newItem
             }
         }
-    }
-
-    class OnClickListener(val clickListener: (character: CharacterEntity) -> Unit) {
-        fun onClick(character: CharacterEntity) = clickListener(character)
     }
 }
