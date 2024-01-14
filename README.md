@@ -10,3 +10,6 @@ Android App to to showcase Star Wars Character using https://swapi.dev/.
 - Flows
 - Dagger Hilt for DI
 - Navigation Components
+
+## Demo
+<img src="screenshot1.jpg" width="250"/> <img src="screenshot2.jpg" width="250"/>
