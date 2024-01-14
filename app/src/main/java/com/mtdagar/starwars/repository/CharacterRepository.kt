@@ -23,7 +23,7 @@ class CharacterRepository @Inject constructor(
     private val pagingSourceFactory = { starWarsDatabase.characterDao().getAll() }
 
     @OptIn(ExperimentalPagingApi::class)
-    fun getCharacters(searchString: String , sortingOptions: SortingOptions?): Flow<PagingData<CharacterEntity>> {
+    fun getCharacters(sortingOptions: SortingOptions?): Flow<PagingData<CharacterEntity>> {
 
         var pagingFactory = { starWarsDatabase.characterDao().getAll() }
         sortingOptions?.let {

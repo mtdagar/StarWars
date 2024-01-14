@@ -61,16 +61,16 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpObserver("")
+        setUpObserver()
         setUpAdapter()
     }
 
-    private fun setUpObserver(searchString: String) {
+    private fun setUpObserver() {
         val scope = viewLifecycleOwner.lifecycleScope
 
 
         scope.launch {
-            viewModel.getCharacters(searchString, null).collect {
+            viewModel.getCharacters(null).collect {
                 charactersAdapter.submitData(lifecycle, it)
             }
         }
@@ -78,7 +78,7 @@ class MainFragment : Fragment() {
         binding.btnFilter.setOnClickListener {
             val modal = BottomSheetDialog() {filterOptions ->
                 scope.launch {
-                    viewModel.getCharacters(searchString, filterOptions.sortingOption).collect {
+                    viewModel.getCharacters(filterOptions.sortingOption).collect {
                         charactersAdapter.submitData(lifecycle, it)
                     }
                 }

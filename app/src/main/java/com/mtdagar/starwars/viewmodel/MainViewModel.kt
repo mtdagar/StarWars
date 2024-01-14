@@ -16,7 +16,7 @@ import com.mtdagar.starwars.data.remote.models.CharacterResponse
 class MainViewModel @Inject constructor(private val charactersRepository: CharacterRepository) :
     ViewModel() {
 
-    fun getCharacters(searchString: String, sortingOptions: SortingOptions?): Flow<PagingData<CharacterEntity>> {
-        return charactersRepository.getCharacters(searchString, sortingOptions).cachedIn(viewModelScope)
+    fun getCharacters(sortingOptions: SortingOptions?): Flow<PagingData<CharacterEntity>> {
+        return charactersRepository.getCharacters(sortingOptions).cachedIn(viewModelScope)
     }
 }
