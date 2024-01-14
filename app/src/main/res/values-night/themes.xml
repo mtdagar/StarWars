@@ -1,9 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.StarWars" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.StarWars" parent="Theme.Material3.Dark.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="android:windowBackground">@color/black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
     </style>
 
     <style name="Custom_Toolbar_Theme" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">

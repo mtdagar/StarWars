@@ -18,4 +18,10 @@ interface CharacterDao {
 
     @Query("DELETE FROM characters")
     suspend fun clearCharacters()
+
+    @Query("SELECT * FROM characters ORDER BY name ASC")
+    fun getAllSortedByName(): PagingSource<Int, CharacterEntity>
+
+    @Query("SELECT * FROM characters ORDER BY birthYear ASC")
+    fun getAllSortedByBirth(): PagingSource<Int, CharacterEntity>
 }

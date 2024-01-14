@@ -40,48 +40,9 @@
 
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/tv_gender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gender"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup1" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/tv_gender">
-
-        <RadioButton
-            android:id="@+id/radio_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Male"
-            android:textColor="@color/white"
-            app:buttonTint="@color/red" />
-
-        <RadioButton
-            android:id="@+id/radio_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Female"
-            android:textColor="@color/white"
-            app:buttonTint="@color/red" />
-
-        <RadioButton
-            android:id="@+id/radio_other"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Other"
-            android:textColor="@color/white"
-            app:buttonTint="@color/red" />
-    </RadioGroup>
 
     <Button
-        android:id="@+id/btn_filter"
+        android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -92,6 +53,6 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup2" />
+        app:layout_constraintTop_toBottomOf="@id/radioGroup1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

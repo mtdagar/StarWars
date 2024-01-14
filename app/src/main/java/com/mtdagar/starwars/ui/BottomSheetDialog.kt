@@ -9,8 +9,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mtdagar.starwars.databinding.FilterOptionsLayoutBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.mtdagar.starwars.R
+import com.mtdagar.starwars.data.local.models.FilterOptions
+import com.mtdagar.starwars.data.local.models.SortingOptions
 
-class BottomSheetDialog : BottomSheetDialogFragment() {
+class BottomSheetDialog(private val onSubmit: (FilterOptions) -> Unit) : BottomSheetDialogFragment() {
 
     private lateinit var binding: FilterOptionsLayoutBinding
     override fun onCreateView(
@@ -38,6 +41,27 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
             }
         }
         return super.onCreateDialog(savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnSubmit.setOnClickListener {
+            when (binding.radioGroup1.checkedRadioButtonId) {
+                R.id.radio_name -> {
+                    onSubmit.invoke(
+                        FilterOptions(SortingOptions.NAME)
+                    )
+                }
+                R.id.radio_age -> {
+                    onSubmit.invoke(
+                        FilterOptions(SortingOptions.AGE)
+                    )
+                }
+            }
+
+            dismiss()
+        }
     }
 
     companion object {

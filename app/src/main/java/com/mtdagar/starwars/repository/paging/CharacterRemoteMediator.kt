@@ -8,6 +8,7 @@ import androidx.room.withTransaction
 import com.mtdagar.starwars.data.local.CharacterRemoteKeys
 import com.mtdagar.starwars.data.local.StarWarsDatabase
 import com.mtdagar.starwars.data.local.models.CharacterEntity
+import com.mtdagar.starwars.data.local.models.SortingOptions
 import com.mtdagar.starwars.data.local.models.mapFromListModel
 import retrofit2.HttpException
 import java.io.IOException
@@ -18,6 +19,7 @@ import com.mtdagar.starwars.network.StarWarsApi
 class CharacterRemoteMediator(
     private val starWarsDatabase: StarWarsDatabase,
     private val apiService: StarWarsApi,
+    private val sortingOptions: SortingOptions?
 ) : RemoteMediator<Int, CharacterEntity>() {
 
     override suspend fun initialize(): InitializeAction {

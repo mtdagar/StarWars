@@ -12,12 +12,17 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.paging.filter
 import androidx.recyclerview.widget.GridLayoutManager
 import com.mtdagar.starwars.R
 import com.mtdagar.starwars.adapter.CharactersAdapter
+import com.mtdagar.starwars.data.local.models.FilterOptions
+import com.mtdagar.starwars.data.local.models.SortingOptions
 import com.mtdagar.starwars.databinding.FragmentMainBinding
 import com.mtdagar.starwars.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -61,14 +66,23 @@ class MainFragment : Fragment() {
     }
 
     private fun setUpObserver(searchString: String) {
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.getCharacters(searchString).collect {
+        val scope = viewLifecycleOwner.lifecycleScope
+
+
+        scope.launch {
+            viewModel.getCharacters(searchString, null).collect {
                 charactersAdapter.submitData(lifecycle, it)
             }
         }
 
         binding.btnFilter.setOnClickListener {
-            val modal = BottomSheetDialog()
+            val modal = BottomSheetDialog() {filterOptions ->
+                scope.launch {
+                    viewModel.getCharacters(searchString, filterOptions.sortingOption).collect {
+                        charactersAdapter.submitData(lifecycle, it)
+                    }
+                }
+            }
             parentFragmentManager.let { modal.show(it, BottomSheetDialog.TAG) }
 
         }
