@@ -62,7 +62,7 @@ class CharacterDetailFragment : Fragment() {
                     is Resource.Failure -> {
                         binding.filmProgressBar.isVisible = false
                         binding.textViewFilmsError.isVisible = true
-                        binding.textViewFilmsError.text = event.message
+                        binding.textViewFilmsError.text = "Error fetching data. Check network connection"
                     }
                     is Resource.Loading -> {
                         binding.filmProgressBar.isVisible = true

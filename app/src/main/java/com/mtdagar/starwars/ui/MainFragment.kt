@@ -121,7 +121,7 @@ class MainFragment : Fragment() {
                 error?.let {
                     if (charactersAdapter.snapshot().isEmpty()) {
                         binding.textViewError.isVisible = true
-                        binding.textViewError.text = it.error.localizedMessage
+                        binding.textViewError.text = "Failed to connect to server"
                     }
                 }
             }
