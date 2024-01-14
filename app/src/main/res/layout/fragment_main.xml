@@ -23,7 +23,7 @@
         android:id="@+id/btn_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="filter"
+        android:text="Filter"
         android:textColor="@color/white"
         android:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="@id/iv_banner"
